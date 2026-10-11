@@ -1,0 +1,416 @@
+//===== rAthena Script =======================================
+//= City Unity: request board (wanted bounties and deliveries)
+//===== Description: =========================================
+//= Part of the Ragnarok Offline mod "city-unity".
+//= Generated from the kRO and iRO clients' quest tables by a script
+//= kept with the mod's working files (unity/tools/gen_requests.py).
+//=
+//= City Merchant Union Board (moc_para01): take one weekly wanted
+//= bounty (quests 5471-5495) and one delivery at a time, A, B or C
+//= rank (quests 5497-5726), each rank once a day.
+//= Clerk (moc_para01 53,32): pays the insignias and takes requests back.
+//= Delivery recipients stand in the dungeons the quest text names.
+//=
+//= Sources: kRO and iRO client quest text (Dec 2025 / Oct 2026 builds)
+//= for every task, recipient, item, amount, map, position and bounty;
+//= GN (gnjoy seq=177) for the rules (one A-C delivery at a time,
+//= weekly bounty resets Wednesday 04:00); bRO wiki for delivery rewards.
+//============================================================
+
+-	script	Unity Requests#cu	-1,{
+	end;
+
+OnInit:
+	// Wanted: quest, boss, insignias.
+	setarray .w_quest, 5471, 5472, 5473, 5474, 5475, 5476, 5478, 5479, 5480, 5481, 5483, 5484, 5485, 5486, 5487, 5488, 5489, 5490, 5491, 5492, 5493, 5494, 5495;
+	setarray .w_boss, 1957, 1929, 2322, 2319, 2476, 2529, 2996, 3000, 3029, 3097, 3073, 3124, 3190, 3181, 3181, 3254, 3450, 3473, 2022, 2131, 2317, 2542, 2959;
+	setarray .w_reward, 300, 200, 250, 250, 200, 250, 250, 300, 300, 300, 200, 200, 200, 150, 150, 200, 100, 200, 150, 150, 150, 100, 100;
+
+	// Deliveries by rank (0 = A, 1 = B, 2 = C): task quest, item, amount,
+	// insignias. The receipt quest is always the task quest + 1.
+	// Rewards are bRO's table only. [unverified: delivery rewards, one source]
+	setarray .dA_quest[0], 5497, 5499, 5501, 5503, 5505, 5507, 5509, 5511, 5513, 5515, 5517, 5519, 5521, 5523, 5525, 5527, 5529, 5531, 5533, 5535;
+	setarray .dA_quest[20], 5537, 5539, 5541, 5543, 5545, 5547, 5549, 5551, 5553, 5555, 5557, 5559, 5561, 5563, 5565, 5567, 5569, 5571, 5573, 5575;
+	setarray .dA_item[0], 12117, 12117, 515, 516, 610, 610, 610, 523, 1751, 517, 12115, 12115, 12115, 611, 12115, 744, 744, 744, 610, 717;
+	setarray .dA_item[20], 610, 717, 610, 717, 610, 717, 7455, 517, 748, 602, 602, 1751, 1751, 504, 602, 611, 611, 601, 1752, 602;
+	setarray .dA_amount[0], 2, 2, 30, 30, 5, 5, 5, 10, 500, 30, 2, 2, 2, 10, 2, 1, 1, 1, 5, 10;
+	setarray .dA_amount[20], 5, 10, 5, 10, 5, 10, 10, 30, 1, 3, 3, 500, 500, 10, 3, 10, 10, 10, 500, 3;
+	setarray .dA_reward[0], 35, 40, 35, 40, 35, 35, 35, 40, 45, 50, 40, 45, 50, 50, 40, 35, 40, 50, 40, 45;
+	setarray .dA_reward[20], 50, 50, 50, 50, 50, 50, 40, 50, 50, 50, 50, 35, 40, 45, 50, 45, 50, 40, 45, 50;
+	setarray .dB_quest[0], 5578, 5580, 5582, 5584, 5586, 5588, 5590, 5592, 5594, 5596, 5598, 5600, 5602, 5604, 5606, 5608, 5610, 5612, 5614, 5616;
+	setarray .dB_quest[20], 5618, 5620, 5622, 5624, 5626, 5628, 5630, 5632, 5634, 5636, 5638, 5640, 5642, 5644, 5646, 5648, 5650, 5652, 5654, 5656;
+	setarray .dB_quest[40], 5658, 5660, 5662, 5664, 5666, 5668, 5670, 5672, 5674;
+	setarray .dB_item[0], 1751, 1751, 502, 503, 504, 601, 601, 502, 12117, 501, 611, 656, 656, 504, 502, 503, 504, 501, 502, 502;
+	setarray .dB_item[20], 502, 503, 611, 611, 611, 611, 12117, 744, 601, 602, 504, 12115, 504, 504, 504, 657, 657, 748, 601, 601;
+	setarray .dB_item[40], 601, 601, 610, 717, 1751, 1065, 601, 601, 601;
+	setarray .dB_amount[0], 500, 500, 10, 10, 10, 10, 10, 10, 2, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10;
+	setarray .dB_amount[20], 10, 10, 10, 10, 10, 10, 2, 1, 10, 3, 10, 2, 10, 10, 10, 10, 10, 1, 10, 10;
+	setarray .dB_amount[40], 10, 10, 5, 10, 500, 20, 10, 10, 10;
+	setarray .dB_reward[0], 30, 35, 30, 35, 40, 30, 35, 30, 35, 30, 30, 30, 30, 35, 30, 35, 40, 30, 35, 30;
+	setarray .dB_reward[20], 30, 35, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 40, 35, 40, 30, 35;
+	setarray .dB_reward[40], 30, 35, 30, 30, 35, 35, 35, 40, 30;
+	setarray .dC_quest[0], 5677, 5679, 5681, 5683, 5685, 5687, 5689, 5691, 5693, 5695, 5697, 5699, 5701, 5703, 5705, 5707, 5709, 5711, 5713, 5715;
+	setarray .dC_quest[20], 5717, 5719, 5721, 5723, 5725;
+	setarray .dC_item[0], 501, 602, 501, 717, 523, 501, 501, 506, 503, 501, 503, 501, 502, 503, 503, 2301, 601, 517, 516, 611;
+	setarray .dC_item[20], 528, 645, 601, 601, 1065;
+	setarray .dC_amount[0], 10, 3, 10, 5, 10, 10, 10, 5, 10, 10, 10, 10, 10, 10, 10, 1, 10, 30, 30, 10;
+	setarray .dC_amount[20], 10, 10, 10, 10, 20;
+	setarray .dC_reward[0], 20, 20, 25, 20, 20, 30, 30, 20, 20, 20, 30, 25, 20, 20, 25, 20, 25, 25, 25, 30;
+	setarray .dC_reward[20], 30, 30, 25, 25, 30;
+	setarray .standby, 5496, 5577, 5676;// A, B, C
+	setarray .rank$, "A", "B", "C";
+	end;
+}
+
+// The board. divine-pride lists 54,35, which is inside the wall in the map
+// data, so it stands at 53,35 in line with the manager and clerk. The kRO
+// client's navigation table doesn't list it, HF's /navi gives 60,35.
+// [unverified: board position and sprite]
+moc_para01,53,35,4	script	City Merchant Union Board#cu	857,{
+	.@npc$ = "Unity Requests#cu";
+	mes "[City Merchant Union Board]";
+	mes "Requests posted by the City Merchant Union.";
+	if (isbegin_quest(12370) != 1) {
+		mes "Only union members may take them. The union's manager stands nearby.";
+		close;
+	}
+	next;
+	switch (select("Wanted bounty (weekly):A-rank delivery:B-rank delivery:C-rank delivery:Close")) {
+	case 1:
+		mes "[City Merchant Union Board]";
+		.@n = getarraysize(getvariableofnpc(.w_quest, .@npc$));
+		for (.@i = 0; .@i < .@n; .@i++) {
+			.@q = getvariableofnpc(.w_quest[.@i], .@npc$);
+			if (isbegin_quest(.@q) == 1) {
+				mes "You already hold a bounty. Check your quest log, and report to the clerk once it's done.";
+				close;
+			}
+		}
+		if (isbegin_quest(5470) == 1) {
+			if (gettimetick(2) < unity_wanted_reset) {
+				mes "There's no new bounty yet. New ones are posted on Wednesday at 4 a.m.";
+				close;
+			}
+			erasequest 5470;
+		}
+		.@i = rand(.@n);
+		.@q = getvariableofnpc(.w_quest[.@i], .@npc$);
+		setquest .@q;
+		mes "You take this week's bounty: defeat ^0000FF" + getmonsterinfo(getvariableofnpc(.w_boss[.@i], .@npc$), MOB_NAME) + "^000000 for " + getvariableofnpc(.w_reward[.@i], .@npc$) + " Union Insignias.";
+		mes "Report to the clerk when it's done.";
+		close;
+	case 2:
+	case 3:
+	case 4:
+		.@r = @menu - 2;
+		.@rk$ = getvariableofnpc(.rank$[.@r], .@npc$);
+		mes "[City Merchant Union Board]";
+		if (callfunc("F_Unity_HeldDelivery") > 0) {
+			mes "You already hold a delivery. Finish it, or give it back to the clerk, before taking another.";
+			close;
+		}
+		.@sb = getvariableofnpc(.standby[.@r], .@npc$);
+		if (isbegin_quest(.@sb) == 1) {
+			if (checkquest(.@sb, PLAYTIME) == 2)
+				erasequest .@sb;
+			else {
+				mes "You've done today's " + .@rk$ + "-rank delivery. New requests are posted at 4 a.m.";
+				close;
+			}
+		}
+		.@n = getarraysize(getvariableofnpc(getd(".d" + .@rk$ + "_quest"), .@npc$));
+		.@i = rand(.@n);
+		.@q = getvariableofnpc(getd(".d" + .@rk$ + "_quest[" + .@i + "]"), .@npc$);
+		.@item = getvariableofnpc(getd(".d" + .@rk$ + "_item[" + .@i + "]"), .@npc$);
+		.@amt = getvariableofnpc(getd(".d" + .@rk$ + "_amount[" + .@i + "]"), .@npc$);
+		setquest .@q;
+		mes "You take a " + .@rk$ + "-rank delivery: " + .@amt + " " + getitemname(.@item) + ".";
+		mes "Your quest log says who it's for and where they are. Bring the receipt back to the clerk.";
+		close;
+	case 5:
+		close;
+	}
+	end;
+}
+
+// Returns the delivery task or receipt quest the player holds, or 0.
+function	script	F_Unity_HeldDelivery	{
+	for (.@q = 5497; .@q <= 5726; .@q++) {
+		if (.@q == 5577 || .@q == 5676)
+			continue;
+		if (isbegin_quest(.@q) == 1)
+			return .@q;
+	}
+	return 0;
+}
+
+// Clerk Gabyunus (kRO 사무관 가뷰너스, iRO "Secretary Governor"):
+// sprite 893 at 53,32 in both clients' navigation tables.
+moc_para01,53,32,4	script	Secretary Governor#cu	893,{
+	.@npc$ = "Unity Requests#cu";
+	.@n$ = "[Secretary Governor]";
+	mes .@n$;
+	mes "I settle the City Merchant Union's requests.";
+	next;
+	switch (select("Report a wanted bounty:Report a delivery:Give back a request:Nothing")) {
+	case 1:
+		.@n = getarraysize(getvariableofnpc(.w_quest, .@npc$));
+		for (.@i = 0; .@i < .@n; .@i++) {
+			.@q = getvariableofnpc(.w_quest[.@i], .@npc$);
+			if (isbegin_quest(.@q) == 1)
+				break;
+		}
+		mes .@n$;
+		if (.@i == .@n) {
+			mes "You don't hold a bounty.";
+			close;
+		}
+		if (checkquest(.@q, HUNTING) != 2) {
+			mes "The target isn't down yet. Come back once it is.";
+			close;
+		}
+		.@reward = getvariableofnpc(.w_reward[.@i], .@npc$);
+		if (checkweight(25051, .@reward) == 0) {
+			mes "You're carrying too much to take the reward.";
+			close;
+		}
+		erasequest .@q;
+		callfunc "F_Unity_WantedWait";
+		getitem 25051, .@reward;
+		mes "Splendid work. Here are your " + .@reward + " Union Insignias.";
+		mes "The next bounty is posted on Wednesday at 4 a.m.";
+		close;
+	case 2:
+		.@q = callfunc("F_Unity_HeldDelivery");
+		mes .@n$;
+		if (.@q == 0) {
+			mes "You don't hold a delivery.";
+			close;
+		}
+		.@r = (.@q < 5577) ? 0 : ((.@q < 5676) ? 1 : 2);
+		.@rk$ = getvariableofnpc(.rank$[.@r], .@npc$);
+		.@task = callfunc("F_Unity_DeliveryTask", .@q);
+		if (.@task == .@q) {
+			mes "Deliver the goods first, then bring me the receipt.";
+			close;
+		}
+		.@n = getarraysize(getvariableofnpc(getd(".d" + .@rk$ + "_quest"), .@npc$));
+		for (.@i = 0; .@i < .@n; .@i++)
+			if (getvariableofnpc(getd(".d" + .@rk$ + "_quest[" + .@i + "]"), .@npc$) == .@task)
+				break;
+		.@reward = getvariableofnpc(getd(".d" + .@rk$ + "_reward[" + .@i + "]"), .@npc$);
+		if (checkweight(25051, .@reward) == 0) {
+			mes "You're carrying too much to take the reward.";
+			close;
+		}
+		erasequest .@q;
+		setquest getvariableofnpc(.standby[.@r], .@npc$);
+		getitem 25051, .@reward;
+		mes "The receipt's in order. Here are your " + .@reward + " Union Insignias.";
+		close;
+	case 3:
+		mes .@n$;
+		mes "Which request do you want to give back? A bounty you give back stays closed until Wednesday's new posting.";
+		next;
+		switch (select("Wanted bounty:Delivery:Cancel")) {
+		case 1:
+			.@n = getarraysize(getvariableofnpc(.w_quest, .@npc$));
+			for (.@i = 0; .@i < .@n; .@i++) {
+				.@q = getvariableofnpc(.w_quest[.@i], .@npc$);
+				if (isbegin_quest(.@q) == 1) {
+					erasequest .@q;
+					callfunc "F_Unity_WantedWait";
+					mes .@n$;
+					mes "Done. The bounty is back on the board.";
+					close;
+				}
+			}
+			mes .@n$;
+			mes "You don't hold a bounty.";
+			close;
+		case 2:
+			.@q = callfunc("F_Unity_HeldDelivery");
+			mes .@n$;
+			if (.@q == 0) {
+				mes "You don't hold a delivery.";
+				close;
+			}
+			erasequest .@q;
+			mes "Done. You can take another delivery from the board.";
+			close;
+		}
+		close;
+	case 4:
+		close;
+	}
+	end;
+}
+
+// The task quest for a held task or receipt quest. A delivery's receipt
+// is its task quest + 1. Task quests are odd for A and C, even for B.
+function	script	F_Unity_DeliveryTask	{
+	.@q = getarg(0);
+	if (.@q < 5577 || .@q > 5676)
+		return (.@q % 2 == 1) ? .@q : .@q - 1;
+	return (.@q % 2 == 0) ? .@q : .@q - 1;
+}
+
+// Starts the wait for the next bounty: quest 5470 until the next
+// Wednesday 04:00 (GN, and the kRO client text of 5470).
+function	script	F_Unity_WantedWait	{
+	.@now = gettimetick(2);
+	.@dow = gettime(DT_DAYOFWEEK);// 0 = Sunday
+	.@sec = gettime(DT_HOUR) * 3600 + gettime(DT_MINUTE) * 60 + gettime(DT_SECOND);
+	.@days = (WEDNESDAY - .@dow + 7) % 7;
+	if (.@days == 0 && .@sec >= 4 * 3600)
+		.@days = 7;
+	unity_wanted_reset = .@now - .@sec + .@days * 86400 + 4 * 3600;
+	setquest 5470;
+	return;
+}
+
+// Delivery recipients. Name (iRO text), map and position (kRO and iRO
+// quest text, matching bRO). [unverified: sprites; the kRO client's
+// navigation table doesn't list these NPCs]
+-	script	Delivery Recipient#cu	-1,{
+	.@task = atoi(strnpcinfo(2));
+	.@npc$ = "Unity Requests#cu";
+	.@r = (.@task < 5577) ? 0 : ((.@task < 5676) ? 1 : 2);
+	.@rk$ = getvariableofnpc(.rank$[.@r], .@npc$);
+	.@n = getarraysize(getvariableofnpc(getd(".d" + .@rk$ + "_quest"), .@npc$));
+	for (.@i = 0; .@i < .@n; .@i++)
+		if (getvariableofnpc(getd(".d" + .@rk$ + "_quest[" + .@i + "]"), .@npc$) == .@task)
+			break;
+	.@item = getvariableofnpc(getd(".d" + .@rk$ + "_item[" + .@i + "]"), .@npc$);
+	.@amt = getvariableofnpc(getd(".d" + .@rk$ + "_amount[" + .@i + "]"), .@npc$);
+	.@n$ = "[" + strnpcinfo(1) + "]";
+	mes .@n$;
+	if (isbegin_quest(.@task) != 1) {
+		mes "Hm? I'm waiting on a delivery from the City Merchant Union.";
+		close;
+	}
+	if (countitem(.@item) < .@amt) {
+		mes "You're from the union? I ordered " + .@amt + " " + getitemname(.@item) + ". Come back when you have them all.";
+		close;
+	}
+	mes "My " + getitemname(.@item) + "! Thank you, I was starting to worry.";
+	mes "Here's your receipt. Take it back to the union's clerk.";
+	delitem .@item, .@amt;
+	changequest .@task, .@task + 1;
+	close;
+}
+
+iz_dun03,67,76,4	duplicate(Delivery Recipient#cu)	Guard Yorayo#5497	4_M_MERCAT1
+iz_dun04,86,45,4	duplicate(Delivery Recipient#cu)	Guard Yarayo#5499	4_M_MERCAT1
+tur_dun03,132,156,4	duplicate(Delivery Recipient#cu)	Picknicker Lucci#5501	4_M_MERCAT1
+tur_dun04,86,175,4	duplicate(Delivery Recipient#cu)	Adventurer Jungfan#5503	4_M_MERCAT1
+in_sphinx5,109,109,4	duplicate(Delivery Recipient#cu)	Beginner Wizard German#5505	4_M_MERCAT1
+moc_pryd04,78,194,4	duplicate(Delivery Recipient#cu)	Creator Pira#5507	4_M_MERCAT1
+moc_pryd06,97,17,4	duplicate(Delivery Recipient#cu)	Minstrel Flounder#5509	4_M_MERCAT1
+abbey01,51,45,4	duplicate(Delivery Recipient#cu)	Shadow Chaser Acto#5511	4_M_MERCAT1
+abbey02,157,32,4	duplicate(Delivery Recipient#cu)	Ranger Ellen#5513	4_M_MERCAT1
+abbey03,108,23,4	duplicate(Delivery Recipient#cu)	Sura Kyuk#5515	4_M_MERCAT1
+thor_v01,18,246,4	duplicate(Delivery Recipient#cu)	Man covering his face#5517	4_M_MERCAT1
+thor_v02,99,200,4	duplicate(Delivery Recipient#cu)	Man covering his face#5519	4_M_MERCAT1
+thor_v03,44,283,4	duplicate(Delivery Recipient#cu)	Man covering his face#5521	4_M_MERCAT1
+ra_san05,151,89,4	duplicate(Delivery Recipient#cu)	Sanc. Research Center#5523	4_M_MERCAT1
+ice_dun03,150,69,4	duplicate(Delivery Recipient#cu)	Hearty Pattuk#5525	4_M_MERCAT1
+lhz_dun02,170,23,4	duplicate(Delivery Recipient#cu)	Lonely Woman#5527	4_M_MERCAT1
+lhz_dun03,159,122,4	duplicate(Delivery Recipient#cu)	Lonely Woman#5529	4_M_MERCAT1
+lhz_dun04,238,49,4	duplicate(Delivery Recipient#cu)	Lonely Woman#5531	4_M_MERCAT1
+tha_t05,223,99,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5533	4_M_MERCAT1
+tha_t06,135,129,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5535	4_M_MERCAT1
+tha_t07,37,178,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5537	4_M_MERCAT1
+tha_t08,49,54,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5539	4_M_MERCAT1
+tha_t09,13,114,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5541	4_M_MERCAT1
+tha_t10,158,111,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5543	4_M_MERCAT1
+tha_t11,34,25,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5545	4_M_MERCAT1
+tha_t12,100,18,4	duplicate(Delivery Recipient#cu)	Creator Elleg#5547	4_M_MERCAT1
+abyss_03,100,40,4	duplicate(Delivery Recipient#cu)	Geek Eater Blubber#5549	4_M_MERCAT1
+jupe_core,134,283,4	duplicate(Delivery Recipient#cu)	Monk Wabi#5551	4_M_MERCAT1
+kh_dun02,17,222,4	duplicate(Delivery Recipient#cu)	Lonely Woman#5553	4_M_MERCAT1
+alde_dun04,147,137,4	duplicate(Delivery Recipient#cu)	Dying Man#5555	4_M_MERCAT1
+c_tower4,179,57,4	duplicate(Delivery Recipient#cu)	Adventurer Molly#5557	4_M_MERCAT1
+gl_cas01,198,37,4	duplicate(Delivery Recipient#cu)	Hunter Panini#5559	4_M_MERCAT1
+gl_cas02,96,33,4	duplicate(Delivery Recipient#cu)	Hunter Panini#5561	4_M_MERCAT1
+gl_dun01,124,265,4	duplicate(Delivery Recipient#cu)	Crusader Frost#5563	4_M_MERCAT1
+gl_dun02,225,257,4	duplicate(Delivery Recipient#cu)	Knight Johnapal#5565	4_M_MERCAT1
+gl_knt01,159,23,4	duplicate(Delivery Recipient#cu)	Rogue Irita#5567	4_M_MERCAT1
+gl_knt02,145,283,4	duplicate(Delivery Recipient#cu)	Rogue Irash#5569	4_M_MERCAT1
+gl_prison1,160,29,4	duplicate(Delivery Recipient#cu)	Wizard Esser#5571	4_M_MERCAT1
+gl_sew03,182,277,4	duplicate(Delivery Recipient#cu)	Bard Adolic#5573	4_M_MERCAT1
+gl_sew04,68,262,4	duplicate(Delivery Recipient#cu)	Monk Wabi#5575	4_M_MERCAT1
+pay_dun01,53,50,4	duplicate(Delivery Recipient#cu)	Ranger Motu#5578	4_M_MERCAT1
+pay_dun02,33,63,4	duplicate(Delivery Recipient#cu)	Ranger Motu#5580	4_M_MERCAT1
+prt_sewb2,19,33,4	duplicate(Delivery Recipient#cu)	Hunting Novice#5582	4_M_MERCAT1
+prt_sewb3,179,149,4	duplicate(Delivery Recipient#cu)	Mysterious Thief#5584	4_M_MERCAT1
+prt_sewb4,112,86,4	duplicate(Delivery Recipient#cu)	Assasin's Guild Member#5586	4_M_MERCAT1
+prt_maze02,106,127,4	duplicate(Delivery Recipient#cu)	Otherworld Traveler#5588	4_M_MERCAT1
+prt_maze03,17,176,4	duplicate(Delivery Recipient#cu)	Adventurer Tory#5590	4_M_MERCAT1
+iz_dun01,36,53,4	duplicate(Delivery Recipient#cu)	Gangster Liyu#5592	4_M_MERCAT1
+iz_dun02,230,226,4	duplicate(Delivery Recipient#cu)	Continental Guard#5594	4_M_MERCAT1
+pay_dun03,149,142,4	duplicate(Delivery Recipient#cu)	Beginner Jarsh#5596	4_M_MERCAT1
+pay_dun04,33,109,4	duplicate(Delivery Recipient#cu)	Archaeologist Mer#5598	4_M_MERCAT1
+treasure02,99,41,4	duplicate(Delivery Recipient#cu)	Traveler Yss#5600	4_M_MERCAT1
+tur_dun01,164,60,4	duplicate(Delivery Recipient#cu)	Pilgrim Ting#5602	4_M_MERCAT1
+tur_dun02,150,243,4	duplicate(Delivery Recipient#cu)	Warrior with a scimitar#5604	4_M_MERCAT1
+in_sphinx2,147,133,4	duplicate(Delivery Recipient#cu)	Wounded Cat#5606	4_M_MERCAT1
+in_sphinx3,205,37,4	duplicate(Delivery Recipient#cu)	Security Guard Seowi#5608	4_M_MERCAT1
+in_sphinx4,130,130,4	duplicate(Delivery Recipient#cu)	Soldier Araki#5610	4_M_MERCAT1
+moc_pryd02,20,180,4	duplicate(Delivery Recipient#cu)	Taekwon girl Sireou#5612	4_M_MERCAT1
+moc_pryd03,92,83,4	duplicate(Delivery Recipient#cu)	Arch Bishop Shavil#5614	4_M_MERCAT1
+moc_pryd05,102,84,4	duplicate(Delivery Recipient#cu)	Rune Knight Preth#5616	4_M_MERCAT1
+gef_dun01,120,220,4	duplicate(Delivery Recipient#cu)	Arunafeltz member#5618	4_M_MERCAT1
+gef_dun02,91,127,4	duplicate(Delivery Recipient#cu)	Professor Shog#5620	4_M_MERCAT1
+ra_san01,140,110,4	duplicate(Delivery Recipient#cu)	Sanc. Research Center#5622	4_M_MERCAT1
+ra_san02,219,256,4	duplicate(Delivery Recipient#cu)	Sanc. Research Center#5624	4_M_MERCAT1
+ra_san03,20,155,4	duplicate(Delivery Recipient#cu)	Sanc. Research Center#5626	4_M_MERCAT1
+ra_san04,200,193,4	duplicate(Delivery Recipient#cu)	Sanc. Research Center#5628	4_M_MERCAT1
+ice_dun02,168,147,4	duplicate(Delivery Recipient#cu)	Peddler Az#5630	4_M_MERCAT1
+lhz_dun01,162,288,4	duplicate(Delivery Recipient#cu)	Lonely Woman#5632	4_M_MERCAT1
+mjo_dun02,359,354,4	duplicate(Delivery Recipient#cu)	Blacksmith Flige#5634	4_M_MERCAT1
+mjo_dun03,310,246,4	duplicate(Delivery Recipient#cu)	Sorcerer Ryoma#5636	4_M_MERCAT1
+ein_dun02,281,273,4	duplicate(Delivery Recipient#cu)	Miner Piltuber#5638	4_M_MERCAT1
+mag_dun02,43,56,4	duplicate(Delivery Recipient#cu)	Knight Shoberly#5640	4_M_MERCAT1
+tha_t02,146,142,4	duplicate(Delivery Recipient#cu)	Assasin's Guild Member#5642	4_M_MERCAT1
+tha_t03,226,139,4	duplicate(Delivery Recipient#cu)	Assasin's Guild Member#5644	4_M_MERCAT1
+tha_t04,60,157,4	duplicate(Delivery Recipient#cu)	Assasin's Guild Member#5646	4_M_MERCAT1
+abyss_02,262,274,4	duplicate(Delivery Recipient#cu)	Rune Knight Wallaby#5648	4_M_MERCAT1
+juperos_02,46,76,4	duplicate(Delivery Recipient#cu)	Rune Knight Veramyl#5650	4_M_MERCAT1
+kh_dun01,2,208,4	duplicate(Delivery Recipient#cu)	Lonely Woman#5652	4_M_MERCAT1
+alde_dun02,262,250,4	duplicate(Delivery Recipient#cu)	Wizard Luric#5654	4_M_MERCAT1
+alde_dun03,273,72,4	duplicate(Delivery Recipient#cu)	Knight Upon#5656	4_M_MERCAT1
+c_tower2,253,33,4	duplicate(Delivery Recipient#cu)	Archer Ado#5658	4_M_MERCAT1
+c_tower3,143,227,4	duplicate(Delivery Recipient#cu)	Wizard Yorick#5660	4_M_MERCAT1
+gl_church,148,38,4	duplicate(Delivery Recipient#cu)	Meth#5662	4_M_MERCAT1
+gl_chyard,156,52,4	duplicate(Delivery Recipient#cu)	Arch Bishop Tyles#5664	4_M_MERCAT1
+gl_in01,157,13,4	duplicate(Delivery Recipient#cu)	Archer Corel#5666	4_M_MERCAT1
+gl_prison,34,75,4	duplicate(Delivery Recipient#cu)	Rogue Trainer Plex#5668	4_M_MERCAT1
+gl_sew01,270,266,4	duplicate(Delivery Recipient#cu)	Knight Ephad#5670	4_M_MERCAT1
+gl_sew02,25,252,4	duplicate(Delivery Recipient#cu)	Cat Knight Thub#5672	4_M_MERCAT1
+gl_step,30,10,4	duplicate(Delivery Recipient#cu)	Desert Warrior Seth#5674	4_M_MERCAT1
+prt_sewb1,204,229,4	duplicate(Delivery Recipient#cu)	Agent X#5677	4_M_MERCAT1
+prt_maze01,100,100,4	duplicate(Delivery Recipient#cu)	Apprentice Monk Clig#5679	4_M_MERCAT1
+iz_dun00,130,138,4	duplicate(Delivery Recipient#cu)	Village Kid Tti#5681	4_M_MERCAT1
+pay_dun00,36,53,4	duplicate(Delivery Recipient#cu)	Monk Tring#5683	4_M_MERCAT1
+treasure01,74,52,4	duplicate(Delivery Recipient#cu)	Rogue HaRyeong#5685	4_M_MERCAT1
+anthell01,107,124,4	duplicate(Delivery Recipient#cu)	Swordman Heartbeat#5687	4_M_MERCAT1
+anthell02,52,257,4	duplicate(Delivery Recipient#cu)	Ninja Gugan#5689	4_M_MERCAT1
+beach_dun,90,40,4	duplicate(Delivery Recipient#cu)	Archmage Mil#5691	4_M_MERCAT1
+beach_dun2,157,80,4	duplicate(Delivery Recipient#cu)	Rogue Ayo#5693	4_M_MERCAT1
+beach_dun3,161,252,4	duplicate(Delivery Recipient#cu)	Merchant Cat Mr.C#5695	4_M_MERCAT1
+in_sphinx1,138,61,4	duplicate(Delivery Recipient#cu)	Blacksmith Haka#5697	4_M_MERCAT1
+moc_pryd01,122,112,4	duplicate(Delivery Recipient#cu)	Rogue Misen#5699	4_M_MERCAT1
+orcsdun01,95,170,4	duplicate(Delivery Recipient#cu)	Knight Banpick#5701	4_M_MERCAT1
+orcsdun02,60,95,4	duplicate(Delivery Recipient#cu)	Knight Banpick#5703	4_M_MERCAT1
+gef_dun00,171,174,4	duplicate(Delivery Recipient#cu)	Beast Bullroar#5705	4_M_MERCAT1
+ice_dun01,233,80,4	duplicate(Delivery Recipient#cu)	Explorer Fire#5707	4_M_MERCAT1
+mjo_dun01,75,215,4	duplicate(Delivery Recipient#cu)	Spirit Research Ins.#5709	4_M_MERCAT1
+ein_dun01,48,252,4	duplicate(Delivery Recipient#cu)	Hungry Miner#5711	4_M_MERCAT1
+mag_dun01,221,198,4	duplicate(Delivery Recipient#cu)	Picknicker#5713	4_M_MERCAT1
+tha_t01,122,44,4	duplicate(Delivery Recipient#cu)	Archaeologist Mien#5715	4_M_MERCAT1
+abyss_01,247,267,4	duplicate(Delivery Recipient#cu)	Boss Cat#5717	4_M_MERCAT1
+juperos_01,58,227,4	duplicate(Delivery Recipient#cu)	Yunologist Jeobi#5719	4_M_MERCAT1
+alde_dun01,80,275,4	duplicate(Delivery Recipient#cu)	Wanderer Vivi#5721	4_M_MERCAT1
+c_tower1,378,118,4	duplicate(Delivery Recipient#cu)	Wanderer Vivi#5723	4_M_MERCAT1
+glast_01,260,53,4	duplicate(Delivery Recipient#cu)	Reidin Kurs#5725	4_M_MERCAT1

@@ -1,0 +1,323 @@
+//===== rAthena Script =======================================
+//= City Unity: joining, insignia drops, investment, Unity gear
+//===== Description: =========================================
+//= Part of the Ragnarok Offline mod "city-unity".
+//= kRO's Major City Contribution system (대도시 공헌도), added
+//= on kRO 2015-10-14 (ro.gnjoy.com update post seq=177).
+//=
+//= - City Merchant Union Manager (moc_para01) gives quest 12370.
+//= - While 12370 is active, natural monster kills drop Union
+//=   Insignias (25051) for the killer and party members nearby.
+//= - Each of nine cities has an Investment Officer. Insignias
+//=   invested there raise the character's contribution to that
+//=   city, once a day across all cities (quest 12371, 04:00 reset).
+//= - Contribution unlocks that city's Unity gear, sold for zeny.
+//=
+//= Sources are listed per value. HF = hazyforest.com/city_investment,
+//= GN = gnjoy post seq=177, BRO = browiki.org Sindicato_das_Cidades,
+//= DP = divine-pride.net (kRO client data), RA = stock rAthena db.
+//============================================================
+
+// Shared data and helpers.
+// City index: 0 Prontera, 1 Geffen, 2 Payon, 3 Morroc, 4 Juno,
+// 5 Einbroch, 6 Lighthalzen, 7 Rachel, 8 Veins.
+-	script	City Unity#core	-1,{
+	end;
+
+OnInit:
+	setarray .city$, "Prontera", "Geffen", "Payon", "Morroc", "Juno", "Einbroch", "Lighthalzen", "Rachel", "Veins";
+	// Achievement per city (RA achievement_db 127001-127009).
+	setarray .achieve, 127001, 127002, 127004, 127003, 127005, 127007, 127006, 127008, 127009;
+	// City gear type: STR / INT / DEX / AGI (HF and BRO agree).
+	setarray .type$, "STR", "INT", "DEX", "AGI", "DEX", "AGI", "STR", "INT", "DEX";
+
+	// Contribution needed per tier (BRO and RA achievement targets).
+	setarray .tier_need, 3000, 6000, 12000, 20000;
+	// Zeny per tier (BRO only). HF gives only "100,000z to 250,000z".
+	setarray .tier_price, 100000, 120000, 150000, 200000;// [unverified: prices are bRO only; HF's range tops out at 250,000z]
+	setarray .tier_name$, "weapons", "shoes", "armor", "garment";
+
+	// Investment options (BRO only; HF says "250 insignias a day").
+	setarray .inv_tokens, 50, 100, 250;
+	setarray .inv_fame, 250, 525, 1375;// [unverified: contribution per investment is bRO only]
+	end;
+}
+
+// Returns the <index>th Unity gear item a city sells at a tier, or 0.
+// callfunc("F_Unity_Gear", <city>, <tier>, <index>)
+function	script	F_Unity_Gear	{
+	.@city = getarg(0);
+	.@tier = getarg(1);
+	.@type$ = getvariableofnpc(.type$[.@city], "City Unity#core");
+	if (.@tier == 0) {
+		// Tier 1: the city's weapons and shield (HF and BRO agree).
+		switch (.@city) {
+		case 0: setarray .@g, 13456; break;// Unity Sword
+		case 1: setarray .@g, 2030; break;// Unity Two-Handed Staff
+		case 2: setarray .@g, 18132; break;// Unity Bow
+		case 3: setarray .@g, 28011; break;// Unity Katar
+		case 4: setarray .@g, 1997, 1941; break;// Unity Whip, Unity Violin
+		case 5: setarray .@g, 13129, 13329; break;// Unity Revolver, Unity Huuma Shuriken
+		case 6: setarray .@g, 28110, 13457; break;// Unity Two-Handed Axe, Unity Dagger
+		case 7: setarray .@g, 28606, 28905; break;// Unity Bible, Unity Buckler
+		case 8: setarray .@g, 16048, 28904; break;// Unity Mace, Unity Guard
+		}
+	} else {
+		// Tiers 2-4: shoes, armor, garment of the city's type (HF and BRO agree).
+		if (.@type$ == "STR")      setarray .@set, 22078, 15152, 20780;
+		else if (.@type$ == "AGI") setarray .@set, 22079, 15153, 20781;
+		else if (.@type$ == "DEX") setarray .@set, 22080, 15154, 20787;
+		else                       setarray .@set, 22081, 15155, 20782;
+		.@g[0] = .@set[.@tier - 1];
+	}
+	return .@g[getarg(2)];
+}
+
+// City Merchant Union Manager: join or leave the union.
+// Name, sprite 878 and position from the kRO client's navigation table
+// ("도시 상인연합 관리인", moc_para01 53,38), matching DP. HF's /navi gives 60,45.
+moc_para01,53,38,4	script	City Merchant Union Manager#cu	878,{
+	.@n$ = "[City Merchant Union Manager]";
+	if (isbegin_quest(12370) == 0) {
+		mes .@n$;
+		mes "The great cities of Midgard have formed a merchant union, and they're looking for adventurers who'll help them grow.";
+		next;
+		mes .@n$;
+		mes "Members collect ^0000FFUnion Insignias^000000 while hunting monsters. Take them to the ^0000FFInvestment Officer^000000 of Prontera, Geffen, Payon, Morroc, Juno, Einbroch, Lighthalzen, Rachel or Veins.";
+		next;
+		mes .@n$;
+		mes "The more you invest in a city, the more it trusts you, and trusted members may buy that city's ^0000FFUnity gear^000000.";
+		mes "You can invest once a day, in one city.";
+		next;
+		if (select("Join the union:Not now") == 2) {
+			mes .@n$;
+			mes "Come back whenever you're ready.";
+			close;
+		}
+		setquest 12370;
+		mes .@n$;
+		mes "Welcome to the union. From now on you'll find Union Insignias on the monsters you hunt.";
+		mes "Party members who are also in the union can find them too, as long as they're close by.";
+		close;
+	}
+	mes .@n$;
+	mes "How are your investments going?";
+	next;
+	switch (select("How does this work?:Show my contribution:Leave the union:Nothing")) {
+	case 1:
+		mes .@n$;
+		mes "Hunt monsters to collect Union Insignias, then invest them with a city's Investment Officer, once a day.";
+		mes "Investments reset at 4 a.m.";
+		next;
+		mes .@n$;
+		mes "Each city sells its Unity gear as your contribution grows:";
+		for (.@t = 0; .@t < 4; .@t++)
+			mes "- " + callfunc("F_InsertComma", getvariableofnpc(.tier_need[.@t], "City Unity#core")) + ": " + getvariableofnpc(.tier_name$[.@t], "City Unity#core");
+		close;
+	case 2:
+		mes .@n$;
+		for (.@c = 0; .@c < 9; .@c++)
+			mes getvariableofnpc(.city$[.@c], "City Unity#core") + ": " + callfunc("F_InsertComma", unity_fame[.@c]);
+		close;
+	case 3:
+		mes .@n$;
+		mes "If you leave, you'll stop finding insignias. Your contribution to each city is kept.";
+		next;
+		if (select("Leave:Stay") == 2)
+			close;
+		erasequest 12370;
+		mes .@n$;
+		mes "Very well. You can rejoin any time.";
+		close;
+	case 4:
+		close;
+	}
+	end;
+
+// Insignia drops. Natural monsters only: not a slave, and not one a
+// script spawned with its own kill event (those never reach
+// OnNPCKillEvent). Rate: about 20% (HF and BRO). Party members with
+// the quest who are near the monster can get one too (HF and BRO).
+OnNPCKillEvent:
+	.@rate = callfunc("F_ModSetting", "city-unity", "insignia_drop_rate", 20);
+	if (.@rate <= 0)
+		end;
+	getunitdata killedgid, .@md;
+	if (.@md[UMOB_MASTERAID] > 0)
+		end;
+	getmapxy(.@map$, .@mx, .@my, BL_PC);
+	.@mid = getcharid(3);
+	.@cid = getcharid(0);
+	.@pid = getcharid(1);
+	if (.@pid == 0) {
+		setarray .@aids, .@mid;
+		setarray .@cids, .@cid;
+	} else {
+		getpartymember .@pid, 1, .@cids;
+		getpartymember .@pid, 2, .@aids;
+	}
+	.@n = getarraysize(.@cids);
+	for (.@i = 0; .@i < .@n; .@i++) {
+		if (!isloggedin(.@aids[.@i], .@cids[.@i]))
+			continue;
+		if (isbegin_quest(12370, .@cids[.@i]) != 1)
+			continue;
+		// "On screen": same map, within 14 cells of the killer. [unverified: kRO's exact range]
+		if (.@cids[.@i] != .@cid) {
+			if (getmapxy(.@m$, .@x, .@y, BL_PC, strcharinfo(0, .@cids[.@i])) != 0)
+				continue;
+			if (.@m$ != .@map$ || distance(.@x, .@y, .@mx, .@my) > 14)
+				continue;
+		}
+		// One roll per eligible member. [unverified: kRO may roll once per kill]
+		if (rand(100) < .@rate)
+			getitem 25051, 1, .@aids[.@i];
+	}
+	end;
+}
+
+// Investment Officers and Merchant Unions, one pair per city.
+// Names, sprites and positions from the kRO client's navigation table
+// (navi_npc_krpri.lub, Dec 2025 build): "<city> 투자담당관" (sprite 109)
+// and "<city> 상인연합" (sprite 726). HF's /navi spots are within a few
+// cells of these. iRO's client doesn't place them.
+// The officer takes investments; the Merchant Union sells the gear.
+// Which of the two sells the gear is inferred from the names. [unverified: the two NPCs' roles]
+-	script	Investment Officer#cu	-1,{
+	.@c = atoi(strnpcinfo(2));
+	.@n$ = "[Investment Officer]";
+	.@city$ = getvariableofnpc(.city$[.@c], "City Unity#core");
+	.@ach = getvariableofnpc(.achieve[.@c], "City Unity#core");
+	mes .@n$;
+	mes "I handle the merchant union's investments in " + .@city$ + ".";
+	mes "Your contribution here: ^0000FF" + callfunc("F_InsertComma", unity_fame[.@c]) + "^000000.";
+	next;
+	switch (select("Invest Union Insignias:About contribution:Nothing")) {
+	case 1:
+		if (isbegin_quest(12370) != 1) {
+			mes .@n$;
+			mes "Only members of the merchant union can invest. The union's manager is in the Eden Group lobby.";
+			close;
+		}
+		if (isbegin_quest(12371) == 1) {
+			if (checkquest(12371, PLAYTIME) == 2)
+				erasequest 12371;
+			else {
+				mes .@n$;
+				mes "You've already invested today. Investments open again at 4 a.m.";
+				close;
+			}
+		}
+		.@mul = callfunc("F_ModSetting", "city-unity", "investment_multiplier", 1);
+		for (.@i = 0; .@i < 3; .@i++) {
+			.@tok = getvariableofnpc(.inv_tokens[.@i], "City Unity#core");
+			.@fam = getvariableofnpc(.inv_fame[.@i], "City Unity#core") * .@mul;
+			.@menu$ += .@tok + " insignias (+" + callfunc("F_InsertComma", .@fam) + " contribution):";
+		}
+		.@menu$ += "Cancel";
+		mes .@n$;
+		mes "How much would you like to invest? You can invest once a day, in one city.";
+		next;
+		.@s = select(.@menu$) - 1;
+		if (.@s == 3)
+			close;
+		.@tok = getvariableofnpc(.inv_tokens[.@s], "City Unity#core");
+		.@fam = getvariableofnpc(.inv_fame[.@s], "City Unity#core") * .@mul;
+		if (countitem(25051) < .@tok) {
+			mes .@n$;
+			mes "You need " + .@tok + " Union Insignias for that.";
+			close;
+		}
+		delitem 25051, .@tok;
+		setquest 12371;
+		unity_fame[.@c] += .@fam;
+		achievementupdate(.@ach, ACHIEVEINFO_COUNT1, unity_fame[.@c]);
+		mes .@n$;
+		mes "Thank you. " + .@city$ + " won't forget it.";
+		mes "Your contribution here is now ^0000FF" + callfunc("F_InsertComma", unity_fame[.@c]) + "^000000.";
+		close;
+	case 2:
+		mes .@n$;
+		mes "As your contribution grows, " + .@city$ + "'s Merchant Union will sell you its Unity gear:";
+		for (.@t = 0; .@t < 4; .@t++)
+			mes "- " + callfunc("F_InsertComma", getvariableofnpc(.tier_need[.@t], "City Unity#core")) + ": " + getvariableofnpc(.tier_name$[.@t], "City Unity#core") + " (" + callfunc("F_InsertComma", getvariableofnpc(.tier_price[.@t], "City Unity#core")) + "z)";
+		close;
+	case 3:
+		close;
+	}
+	end;
+}
+
+-	script	Merchant Union#cu	-1,{
+	.@c = atoi(strnpcinfo(2));
+	.@city$ = getvariableofnpc(.city$[.@c], "City Unity#core");
+	.@n$ = "[" + .@city$ + " Merchant Union]";
+	mes .@n$;
+	mes "We sell Unity gear to adventurers " + .@city$ + " trusts.";
+	mes "It's bound to your account, and its armor bonuses stop working once you pass base level 100.";
+	mes "Your contribution here: ^0000FF" + callfunc("F_InsertComma", unity_fame[.@c]) + "^000000.";
+	next;
+	for (.@t = 0; .@t < 4; .@t++) {
+		.@need = getvariableofnpc(.tier_need[.@t], "City Unity#core");
+		.@price = getvariableofnpc(.tier_price[.@t], "City Unity#core");
+		for (.@j = 0; (.@id = callfunc("F_Unity_Gear", .@c, .@t, .@j)) > 0; .@j++) {
+			.@items[.@k] = .@id;
+			.@costs[.@k] = .@price;
+			.@needs[.@k] = .@need;
+			if (unity_fame[.@c] >= .@need)
+				.@menu$ += getitemname(.@id) + " - " + callfunc("F_InsertComma", .@price) + "z:";
+			else
+				.@menu$ += "^999999" + getitemname(.@id) + " (" + callfunc("F_InsertComma", .@need) + " contribution)^000000:";
+			.@k++;
+		}
+	}
+	.@menu$ += "Cancel";
+	.@s = select(.@menu$) - 1;
+	if (.@s == .@k)
+		close;
+	mes .@n$;
+	if (unity_fame[.@c] < .@needs[.@s]) {
+		mes "You need " + callfunc("F_InsertComma", .@needs[.@s]) + " contribution in " + .@city$ + " for that.";
+		close;
+	}
+	// Discount doesn't apply (HF).
+	mes "^0000FF" + getitemname(.@items[.@s]) + "^000000 costs " + callfunc("F_InsertComma", .@costs[.@s]) + " zeny. Buy it?";
+	next;
+	if (select("Buy:Cancel") == 2)
+		close;
+	if (Zeny < .@costs[.@s]) {
+		mes .@n$;
+		mes "You don't have enough zeny.";
+		close;
+	}
+	if (checkweight(.@items[.@s], 1) == 0) {
+		mes .@n$;
+		mes "You're carrying too much.";
+		close;
+	}
+	Zeny -= .@costs[.@s];
+	getitem .@items[.@s], 1;
+	mes .@n$;
+	mes "Here you are. Wear it well.";
+	close;
+}
+
+prontera,142,67,4	duplicate(Investment Officer#cu)	Investment Officer#0	109
+geffen,103,70,4	duplicate(Investment Officer#cu)	Investment Officer#1	109
+payon,156,61,4	duplicate(Investment Officer#cu)	Investment Officer#2	109
+morocc,184,94,4	duplicate(Investment Officer#cu)	Investment Officer#3	109
+yuno,151,127,4	duplicate(Investment Officer#cu)	Investment Officer#4	109
+einbroch,242,178,4	duplicate(Investment Officer#cu)	Investment Officer#5	109
+lighthalzen,220,110,4	duplicate(Investment Officer#cu)	Investment Officer#6	109
+rachel,267,131,4	duplicate(Investment Officer#cu)	Investment Officer#7	109
+veins,194,116,4	duplicate(Investment Officer#cu)	Investment Officer#8	109
+
+prontera,146,67,4	duplicate(Merchant Union#cu)	Prontera Merchant Union#0	726
+geffen,99,70,4	duplicate(Merchant Union#cu)	Geffen Merchant Union#1	726
+payon,152,61,4	duplicate(Merchant Union#cu)	Payon Merchant Union#2	726
+morocc,181,97,4	duplicate(Merchant Union#cu)	Morroc Merchant Union#3	726
+yuno,153,130,4	duplicate(Merchant Union#cu)	Juno Merchant Union#4	726
+einbroch,244,180,4	duplicate(Merchant Union#cu)	Einbroch Merchant Union#5	726
+lighthalzen,220,113,4	duplicate(Merchant Union#cu)	Lighthalzen Merchant Union#6	726
+rachel,263,131,4	duplicate(Merchant Union#cu)	Rachel Merchant Union#7	726
+veins,190,120,4	duplicate(Merchant Union#cu)	Veins Merchant Union#8	726

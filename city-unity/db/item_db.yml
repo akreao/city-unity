@@ -1,0 +1,22 @@
+# City Unity: Unity Guard and Unity Buckler. kRO's item text gives both
+# shields their Base Lv 100 bonus but no EXP +4%; stock rAthena adds
+# EXP +4% to both. Scripts below drop the EXP line and keep the rest.
+# Sources: kRO client item text (itemInfo_true.lub, Dec 2025; divine-pride
+# shows the same). The iRO client's text keeps EXP +4% on both; kRO wins.
+# [unverified: kRO and iRO disagree on the EXP bonus]
+
+Header:
+  Type: ITEM_DB
+  Version: 3
+
+Body:
+  - Id: 28904
+    Script: |
+      if (BaseLevel < 101) {
+         bonus bDef,12*getrefine();
+      }
+  - Id: 28905
+    Script: |
+      if (BaseLevel < 101) {
+         bonus bMaxSPrate,getrefine()*2;
+      }

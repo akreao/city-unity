@@ -1,0 +1,1825 @@
+-- City Unity quest text in English, for the city-unity mod (Ragnarok Offline).
+-- Every entry is the iRO client's own text (patched 2026-10-07). "iRO, corrected" entries
+-- only rename the Union Token to the Union Insignia, the item's name in the iRO item table
+-- and on the server. ASCII only: the client reads this table in its own codepage.
+
+QuestInfoList = {
+	[12370] = { -- iRO, corrected
+		Title = "Member of Union",
+		Description = {
+			"You will now engage in hunting as a member of the Midgard City Union. You have a chance to obtain a Union Insignia while hunting.",
+		},
+		Summary = "A member of the Midgard Union",
+	},
+	[12371] = { -- official iRO
+		Title = "Today's Investment Finished",
+		Description = {
+			"You have already invested in a city today. You can invest again after the reset at 4:00 AM.",
+		},
+		Summary = "Resets at 4 AM",
+		CoolTimeQuest = 1,
+	},
+	[5470] = { -- official iRO
+		Title = "(Wanted) Pending",
+		Description = {
+			"There are no newly registered bounty requests on the City Merchants' Union bulletin board. It seems that requests are updated every Wednesday at 4:00 AM.",
+		},
+		Summary = "Resets Wednesday at 4:00 AM",
+		CoolTimeQuest = 1,
+	},
+	[5471] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"It is said that the royal family of Prontera will reward those who capture the top boss of the Constellation, Entweihen Crothen.",
+		},
+		Summary = "300 Bounty Union Insignias",
+	},
+	[5472] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Saint Capitolina Monastery is offering a reward to anyone who defeats Unsealed Baphomet, the boss of the Temple of Seals.",
+		},
+		Summary = "200 Bounty Union Insignias",
+	},
+	[5473] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The residents of Port Malaya are offering a reward to anyone who defeats Bakonawa, the monster of Lake Buwaya.",
+		},
+		Summary = "250 Bounty Union Insignias",
+	},
+	[5474] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The residents of Port Malaya are offering a reward to anyone who defeats Buwaya, the monster of Buwaya Cave.",
+		},
+		Summary = "250 Bounty Union Insignias",
+	},
+	[5475] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who defeats Amdarais, the boss of Old Glast Heim.",
+		},
+		Summary = "200 Bounty Union Insignias",
+	},
+	[5476] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Alberta Merchants' Guild is offering a reward to anyone who defeats Faceworm Queen, the boss of the Faceworm Nest.",
+		},
+		Summary = "250 Bounty Union Insignias",
+	},
+	[5477] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who defeats Fenrir, a participant in the Geffen Magic Tournament.",
+		},
+		Summary = "300 Bounty Union Insignias",
+	},
+	[5478] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Dimensional Rift Research Association is offering a reward to anyone who defeats Celine Kimi, the boss of the Horror Toy Factory.",
+		},
+		Summary = "250 Bounty Union Insignias",
+	},
+	[5479] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Continental Guard Office is offering a reward to anyone who defeats Morocc Necromancer in Morse's Cave.",
+		},
+		Summary = "300 Bounty Union Insignias",
+	},
+	[5480] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Continental Guard Office is offering a reward to anyone who defeats Reaper Anku on Bios Island.",
+		},
+		Summary = "300 Bounty Union Insignias",
+	},
+	[5481] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Continental Guard Office is offering a reward to anyone who defeats Morocc the Despair God, in the Temple of the Demon God.",
+		},
+		Summary = "300 Bounty Union Insignias",
+	},
+	[5482] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who defeats Amdarais, the boss of Old Glast Heim: Hard.",
+		},
+		Summary = "300 Bounty Union Insignias",
+	},
+	[5483] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Frenzied Struggle Guild is offering a reward to anyone who defeats Grand Pere, the boss of Nightmare Jitterbug.",
+		},
+		Summary = "200 Bounty Union Insignias",
+	},
+	[5484] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Frenzied Struggle Guild is offering a reward to anyone who defeats Charleston NO.3 in Charleston Crisis.",
+		},
+		Summary = "200 Bounty Union Insignias",
+	},
+	[5485] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Dimensional Rift Research Association is offering a reward to anyone who stops Sarah Irene in the Fenrir and Sarah Rift.",
+		},
+		Summary = "200 Bounty Union Insignias",
+	},
+	[5486] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who stops Crazy Ferlock, who has gone berserk at the scene of the Airship Raid.",
+		},
+		Summary = "150 Bounty Union Insignias",
+	},
+	[5487] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who stops Crazy Ferlock, who has gone berserk at the scene of the Airship Raid.",
+		},
+		Summary = "150 Bounty Union Insignias",
+	},
+	[5488] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Dimensional Rift Research Association is offering a reward to anyone who stops T_W_O in the Last Room.",
+		},
+		Summary = "200 Bounty Union Insignias",
+	},
+	[5489] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who defeats Bijou, the boss of the Ritual Room.",
+		},
+		Summary = "100 Bounty Union Insignias",
+	},
+	[5490] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"Scientist Doyen is offering a reward to anyone who defeats Stefan J. E. Wolf, the boss of the Sky Fortress Invasion he discovered.",
+		},
+		Summary = "200 Bounty Union Insignias",
+	},
+	[5491] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Yuno Sage Association is offering a reward to anyone who defeats the Shadow of Nydhorgg in Nydhorgg's Nest.",
+		},
+		Summary = "150 Bounty Union Insignias",
+	},
+	[5492] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The Yuno Sage Association is offering a reward to anyone who defeats the Wandering Purple Dragon, the boss of the Misty Forest Labyrinth.",
+		},
+		Summary = "150 Bounty Union Insignias",
+	},
+	[5493] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"The residents of Port Malaya are offering a reward to anyone who defeats Bangungot, the boss on the second floor of Bangungot Hospital.",
+		},
+		Summary = "150 Bounty Union Insignias",
+	},
+	[5494] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who defeats Irene The Wise Elder in Sarah's Memories.",
+		},
+		Summary = "100 Bounty Union Insignias",
+	},
+	[5495] = { -- iRO, corrected
+		Title = "(Wanted)",
+		Description = {
+			"An anonymous client is offering a reward to anyone who defeats the Torturous Redeemer, the boss of the Palace of the Dead.",
+		},
+		Summary = "100 Bounty Union Insignias",
+	},
+	[5496] = { -- official iRO
+		Title = "(Delivery) Cooldown",
+		Description = {
+			"There are no new quests on the City Bulletin Board. Quests reset at 4:00 AM.",
+		},
+		Summary = "Reset at 04:00",
+		CoolTimeQuest = 1,
+	},
+	[5497] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converters (Wind) to ^0565C9Guard Yorayo^000000 at Izlude Undersea Dungeon 4F(iz_dun03). The package must be delivered to the coordinates (67 76).",
+		},
+		Summary = "",
+	},
+	[5498] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Guard Yorayo and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5499] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converters (Wind) to ^0565C9Guard Yarayo^000000 at Izlude Undersea Dungeon 5F(iz_dun04). The package must be delivered to the coordinates (86 45).",
+		},
+		Summary = "",
+	},
+	[5500] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Guard Yarayo and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5501] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 30 Carrots to ^0565C9Picknicker Lucci^000000 at Good Turtles Village(tur_dun03). The package must be delivered to the coordinates (132 156).",
+		},
+		Summary = "",
+	},
+	[5502] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Picknicker Lucci and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5503] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 30 Sweet Potatos to ^0565C9Adventurer Jungfan^000000 at Turtle Palace(tur_dun04). The package must be delivered to the coordinates (86 175).",
+		},
+		Summary = "",
+	},
+	[5504] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Adventurer Jungfan and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5505] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Beginner Wizard German^000000 at Sphinx B5F(in_sphinx5). The package must be delivered to the coordinates (109 109).",
+		},
+		Summary = "",
+	},
+	[5506] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Beginner Wizard German and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5507] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Creator Pira^000000 at Inside Pyramid 4F(moc_pryd04). The package must be delivered to the coordinates (78 194).",
+		},
+		Summary = "",
+	},
+	[5508] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Pira and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5509] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Minstrel Flounder^000000 at Inside Pyramid B2F(moc_pryd06). The package must be delivered to the coordinates (97 17).",
+		},
+		Summary = "",
+	},
+	[5510] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Minstrel Flounder and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5511] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Holy Water to ^0565C9Shadow Chaser Acto^000000 at Nameless Island Monastry 1F(abbey01). The package must be delivered to the coordinates (51 45).",
+		},
+		Summary = "",
+	},
+	[5512] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Shadow Chaser Acto and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5513] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 500 Silver Arrow to ^0565C9Ranger Ellen^000000 at Nameless Island Monastry B1F(abbey02). The package must be delivered to the coordinates (157 32).",
+		},
+		Summary = "",
+	},
+	[5514] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Ranger Ellen and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5515] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 30 Meats to ^0565C9Sura Kyuk^000000 at Nameless Island Monastry B2F(abbey03). The package must be delivered to the coordinates (108 23).",
+		},
+		Summary = "",
+	},
+	[5516] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Sura Kyuk and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5517] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converter (Water) to ^0565C9Man covering his face^000000 at Thor Volcano Dungeon 1F(thor_v01). The package must be delivered to the coordinates (18 246).",
+		},
+		Summary = "",
+	},
+	[5518] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Man covering his face and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5519] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converter (Water) to ^0565C9Man covering his face^000000 at Thor Volcano Dungeon 2F(thor_v02). The package must be delivered to the coordinates (99 200).",
+		},
+		Summary = "",
+	},
+	[5520] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Man covering his face and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5521] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converter (Water) to ^0565C9Man covering his face^000000 at Thor Volcano Dungeon 3F(thor_v03). The package must be delivered to the coordinates (44 283).",
+		},
+		Summary = "",
+	},
+	[5522] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Man covering his face and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5523] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifier to ^0565C9Sanc. Research Center^000000 at Holy Ground 2F(ra_san05). The package must be delivered to the coordinates (151 89).",
+		},
+		Summary = "",
+	},
+	[5524] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Sanc. Research Center and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5525] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converter (Water) to ^0565C9Hearty Pattuk^000000 at Ice Cave 3F(ice_dun03). The package must be delivered to the coordinates (150 69).",
+		},
+		Summary = "",
+	},
+	[5526] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Hearty Pattuk and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5527] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 1 Bouquet to a ^0565C9Lonely Woman^000000 at Somatology Laboratory 2F(lhz_dun02). The package must be delivered to the coordinates (170 23).",
+		},
+		Summary = "",
+	},
+	[5528] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to a Lonely Woman and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5529] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 1 Bouquet to a ^0565C9Lonely Woman^000000 at Somatology Laboratory 3F(lhz_dun03). The package must be delivered to the coordinates (159 122).",
+		},
+		Summary = "",
+	},
+	[5530] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to a Lonely Woman and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5531] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 1 Bouquet to a ^0565C9Lonely Woman^000000 at Somatology Laboratory 4F(lhz_dun04). The package must be delivered to the coordinates (238 49).",
+		},
+		Summary = "",
+	},
+	[5532] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to a Lonely Woman and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5533] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Creator Elleg^000000 at Thanatos Tower 5F(tha_t05). The package must be delivered to the coordinates (223 99).",
+		},
+		Summary = "",
+	},
+	[5534] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5535] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Blue Gemstones to ^0565C9Creator Elleg^000000 at Thanatos Tower 6F(tha_t06). The package must be delivered to the coordinates (135 129).",
+		},
+		Summary = "",
+	},
+	[5536] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5537] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Creator Elleg^000000 at Thanatos Tower 7F(tha_t07). The package must be delivered to the coordinates (37 178).",
+		},
+		Summary = "",
+	},
+	[5538] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5539] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Blue Gemstones to ^0565C9Creator Elleg^000000 at Thanatos Tower 8F(tha_t08). The package must be delivered to the coordinates (49 54).",
+		},
+		Summary = "",
+	},
+	[5540] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5541] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Creator Elleg^000000 at Thanatos Tower 9F(tha_t09). The package must be delivered to the coordinates (13 114).",
+		},
+		Summary = "",
+	},
+	[5542] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5543] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Blue Gemstones to ^0565C9Creator Elleg^000000 at Thanatos Tower 10F(tha_t10). The package must be delivered to the coordinates (158 111).",
+		},
+		Summary = "",
+	},
+	[5544] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5545] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Creator Elleg^000000 at Thanatos Tower 11F(tha_t11). The package must be delivered to the coordinates (34 25).",
+		},
+		Summary = "",
+	},
+	[5546] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5547] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Blue Gemstones to ^0565C9Creator Elleg^000000 at Thanatos Tower 12F(tha_t12). The package must be delivered to the coordinates (100 18).",
+		},
+		Summary = "",
+	},
+	[5548] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Creator Elleg and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5549] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Spicy Sauce to ^0565C9Geek Eater Blubber^000000 at Abyss Lake 3F(abyss_03). The package must be delivered to the coordinates (100 40).",
+		},
+		Summary = "",
+	},
+	[5550] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Geek Eater Blubber and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5551] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 30 Meats to ^0565C9Monk Wabi^000000 at Center of Juperos(jupe_core). The package must be delivered to the coordinates (134 283).",
+		},
+		Summary = "",
+	},
+	[5552] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Monk Wabi and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5553] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 1 Witherless Rose to a ^0565C9Lonely Woman^000000 at Robot Factory level 2(kh_dun02). The package must be delivered to the coordinates (17 222).",
+		},
+		Summary = "",
+	},
+	[5554] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to a Lonely Woman and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5555] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 3 Butterfly Wings to a ^0565C9Dying Man^000000 at Clock Tower B4F(alde_dun04). The package must be delivered to the coordinates (147 137).",
+		},
+		Summary = "",
+	},
+	[5556] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to a Dying Man and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5557] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 3 Butterfly Wings to ^0565C9Adventurer Molly^000000 at Clock Tower 4F(c_tower4). The package must be delivered to the coordinates (179 57).",
+		},
+		Summary = "",
+	},
+	[5558] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Adventurer Molly and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5559] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 500 Silver Arrows to ^0565C9Hunter Panini^000000 at Glast Heim 1F(gl_cas01). The package must be delivered to the coordinates (198 37).",
+		},
+		Summary = "",
+	},
+	[5560] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Hunter Panini and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5561] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 500 Silver Arrows to ^0565C9Hunter Panini^000000 at Glast Heim 2F(gl_cas02). The package must be delivered to the coordinates (96 33).",
+		},
+		Summary = "",
+	},
+	[5562] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Hunter Panini and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5563] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Crusader Frost^000000 at The Lowest Cave in Glast Heim B1F(gl_dun01). The package must be delivered to the coordinates (124 265).",
+		},
+		Summary = "",
+	},
+	[5564] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Crusader Frost and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5565] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 3 Butterfly Wings to ^0565C9Knight Johnapal^000000 at The Lowest Cave in Glast Heim B2F(gl_dun02). The package must be delivered to the coordinates (225 257).",
+		},
+		Summary = "",
+	},
+	[5566] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Knight Johnapal and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5567] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifiers to ^0565C9Rogue Irita^000000 at Inside Glast Heim Knights 1F(gl_knt01). The package must be delivered to the coordinates (159 23).",
+		},
+		Summary = "",
+	},
+	[5568] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Rogue Irita and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5569] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifiers to ^0565C9Rogue Irash^000000 at Inside Glast Heim Knights 2F(gl_knt02). The package must be delivered to the coordinates (145 283).",
+		},
+		Summary = "",
+	},
+	[5570] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Rogue Irash and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5571] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly Wings to ^0565C9Wizard Esser^000000 at Glast Heim Underprison B2F(gl_prison1). The package must be delivered to the coordinates (160 29).",
+		},
+		Summary = "",
+	},
+	[5572] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Wizard Esser and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5573] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 500 Fire Arrows to ^0565C9Bard Adolic^000000 at Glast Heim Culvert B3F(gl_sew03). The package must be delivered to the coordinates (182 277).",
+		},
+		Summary = "",
+	},
+	[5574] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Bard Adolic and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5575] = { -- official iRO
+		Title = "(A-Delivery Quest)",
+		Description = {
+			"I should deliver 3 Butterfly Wings to ^0565C9Monk Wabi^000000 at Glast Heim Culvert B4F(gl_sew04). The package must be delivered to the coordinates (68 262).",
+		},
+		Summary = "",
+	},
+	[5576] = { -- official iRO
+		Title = "(A-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Monk Wabi and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5577] = { -- official iRO
+		Title = "(Delivery Quest) Cool down",
+		Description = {
+			"There are no new requests registered on the City Merchants Association bulletin board. It is said that the request resets at 4 AM.",
+		},
+		Summary = "Reset at 04:00",
+		CoolTimeQuest = 1,
+	},
+	[5578] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 500 Silver Arrows to ^0565C9Ranger Motu^000000 at Payon Cave 2F(pay_dun01). The package must be delivered to the coordinates (53 50).",
+		},
+		Summary = "",
+	},
+	[5579] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Ranger Motu and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5580] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 500 Silver Arrows to ^0565C9Ranger Motu^000000 at Payon Cave 3F(pay_dun02). The package must be delivered to the coordinates (33 63).",
+		},
+		Summary = "",
+	},
+	[5581] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Ranger Motu and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5582] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Orange Potion to ^0565C9Hunting Novice^000000 at Prontera Culvert B2F(prt_sewb2). The package must be delivered to the coordinates (19 33).",
+		},
+		Summary = "",
+	},
+	[5583] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Hunting Novice and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5584] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Yellow Potion to ^0565C9Mysterious Thief^000000 at Prontera Culvert B3F(prt_sewb3). The package must be delivered to the coordinates (179 149).",
+		},
+		Summary = "",
+	},
+	[5585] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Mysterious Thief and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5586] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Assasin's Guild Member^000000 at Prontera Culvert B4F(prt_sewb4). The package must be delivered to the coordinates (112 86).",
+		},
+		Summary = "",
+	},
+	[5587] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Assasin's Guild Member and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5588] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly Wings to ^0565C9Otherworld Traveler^000000 at Labyrinth Forest 2F(prt_maze02). The package must be delivered to the coordinates (106 127).",
+		},
+		Summary = "",
+	},
+	[5589] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Otherworld Traveler and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5590] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly Wings to ^0565C9Adventurer Tory^000000 at Labyrinth Forest 3F(prt_maze03). The package must be delivered to the coordinates (17 176).",
+		},
+		Summary = "",
+	},
+	[5591] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Adventurer Tory and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5592] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Orange Potion to ^0565C9Gangster Liyu^000000 at Undersea Tunnel 2F(iz_dun01). The package must be delivered to the coordinates (36 53).",
+		},
+		Summary = "",
+	},
+	[5593] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Gangster Liyu and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5594] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converter (Wind) to ^0565C9Continental Guard^000000 at Undersea Tunnel 3F(iz_dun02). The package must be delivered to the coordinates (230 226).",
+		},
+		Summary = "",
+	},
+	[5595] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Continental Guard and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5596] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Red Potion to ^0565C9Beginner Jarsh^000000 at Payon Cave 4F(pay_dun03). The package must be delivered to the coordinates (149 142).",
+		},
+		Summary = "",
+	},
+	[5597] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Beginner Jarsh and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5598] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifiers to ^0565C9Archaeologist Mer^000000 at Payon Cave 5F(pay_dun04). The package must be delivered to the coordinates (33 109).",
+		},
+		Summary = "",
+	},
+	[5599] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Archaeologist Mer and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5600] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Awakening Potion to ^0565C9Traveler Yss^000000 at Sunken Ship 2F(treasure02). The package must be delivered to the coordinates (99 41).",
+		},
+		Summary = "",
+	},
+	[5601] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Traveler Yss and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5602] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Awakening Potion to ^0565C9Pilgrim Ting^000000 at Turtle Island(tur_dun01). The package must be delivered to the coordinates (164 60).",
+		},
+		Summary = "",
+	},
+	[5603] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Pilgrim Ting and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5604] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Warrior with a scimitar^000000 at Turtle Island Dungeon(tur_dun02). The package must be delivered to the coordinates (150 243).",
+		},
+		Summary = "",
+	},
+	[5605] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Warrior with a scimitar and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5606] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Orange Potion to ^0565C9Wounded Cat^000000 at Sphinx B2F(in_sphinx2). The package must be delivered to the coordinates (147 133).",
+		},
+		Summary = "",
+	},
+	[5607] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Wounded Cat and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5608] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Yellow Potion to ^0565C9Security Guard Seowi^000000 at Sphinx B3F(in_sphinx3). The package must be delivered to the coordinates (205 37).",
+		},
+		Summary = "",
+	},
+	[5609] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Security Guard Seowi and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5610] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Soldier Araki^000000 at Sphinx B4F(in_sphinx4). The package must be delivered to the coordinates (130 130).",
+		},
+		Summary = "",
+	},
+	[5611] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Soldier Araki and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5612] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Red Potion to ^0565C9Taekwon girl Sireou^000000 at Inside Pyramid 2F(moc_pryd02). The package must be delivered to the coordinates (20 180).",
+		},
+		Summary = "",
+	},
+	[5613] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Taekwon girl Sireou and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5614] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Orange Potion to ^0565C9Arch Bishop Shavil^000000 at Inside Pyramid 3F(moc_pryd03). The package must be delivered to the coordinates (92 83).",
+		},
+		Summary = "",
+	},
+	[5615] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Arch Bishop Shavil and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5616] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Orange Potion to ^0565C9Rune Knight Preth^000000 at Inside Pyramid B1F(moc_pryd05). The package must be delivered to the coordinates (102 84).",
+		},
+		Summary = "",
+	},
+	[5617] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Rune Knight Preth and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5618] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Orange Potion to ^0565C9Arunafeltz member^000000 at Geffen Dungeon B2F(gef_dun01). The package must be delivered to the coordinates (120 220).",
+		},
+		Summary = "",
+	},
+	[5619] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Arunafeltz member and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5620] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Yellow Potion to ^0565C9Professor Shog^000000 at Geffen Dungeon B3F(gef_dun02). The package must be delivered to the coordinates (91 127).",
+		},
+		Summary = "",
+	},
+	[5621] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Professor Shog and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5622] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifiers to ^0565C9Sanc. Research Center^000000 at North Holy Ground 1F(ra_san01). The package must be delivered to the coordinates (140 110).",
+		},
+		Summary = "",
+	},
+	[5623] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Sanc. Research Center and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5624] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifiers to ^0565C9Sanc. Research Center^000000 at West Holy Ground 1F(ra_san02). The package must be delivered to the coordinates (219 256).",
+		},
+		Summary = "",
+	},
+	[5625] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Sanc. Research Center and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5626] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifiers to ^0565C9Sanc. Research Center^000000 at East Holy Ground 1F(ra_san03). The package must be delivered to the coordinates (20 155).",
+		},
+		Summary = "",
+	},
+	[5627] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Sanc. Research Center and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5628] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Magnifiers to ^0565C9Sanc. Research Center^000000 at South Holy Ground 1F(ra_san04). The package must be delivered to the coordinates (200 193).",
+		},
+		Summary = "",
+	},
+	[5629] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Sanc. Research Center and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5630] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converters (Wind) to ^0565C9Peddler Az^000000 at Ice Cave 2F(ice_dun02). The package must be delivered to the coordinates (168 147).",
+		},
+		Summary = "",
+	},
+	[5631] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Peddler Az and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5632] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 1 Bouquet to a ^0565C9Lonely Woman^000000 at Somatology Laboratory B1F(lhz_dun01). The package must be delivered to the coordinates (162 288).",
+		},
+		Summary = "",
+	},
+	[5633] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to a Lonely Woman and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5634] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly Wings to ^0565C9Blacksmith Flige^000000 at Mjolnir Dead Pit 2F(mjo_dun02). The package must be delivered to the coordinates (359 354).",
+		},
+		Summary = "",
+	},
+	[5635] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Blacksmith Flige and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5636] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 3 Butterfly Wings to ^0565C9Sorcerer Ryoma^000000 at Mjolnir Dead Pit 3F(mjo_dun03). The package must be delivered to the coordinates (310 246).",
+		},
+		Summary = "",
+	},
+	[5637] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Sorcerer Ryoma and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5638] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Miner Piltuber^000000 in Einbech Mine Dungeon 2F(ein_dun02). The package must be delivered to the coordinates (281 273).",
+		},
+		Summary = "",
+	},
+	[5639] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Miner Piltuber and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5640] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 2 Elemental Converter (Water) to ^0565C9Knight Shoberly^000000 at Nogg Road 2F(mag_dun02). The package must be delivered to the coordinates (43 56).",
+		},
+		Summary = "",
+	},
+	[5641] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Knight Shoberly and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5642] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Assasin's Guild Member^000000 at Thanatos Tower - Lower Level 2F(tha_t02). The package must be delivered to the coordinates (146 142).",
+		},
+		Summary = "",
+	},
+	[5643] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Assasin's Guild Member and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5644] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Assasin's Guild Member^000000 at Thanatos Tower - Lower Level 3F(tha_t03). The package must be delivered to the coordinates (226 139).",
+		},
+		Summary = "",
+	},
+	[5645] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Assasin's Guild Member and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5646] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 White Potion to ^0565C9Assasin's Guild Member^000000 at Thanatos Tower - Lower Level 4F(tha_t04). The package must be delivered to the coordinates (60 157).",
+		},
+		Summary = "",
+	},
+	[5647] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Assasin's Guild Member and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5648] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Berserk Potion to ^0565C9Rune Knight Wallaby^000000 at Abyss Lake Underground Cave 2F(abyss_02). The package must be delivered to the coordinates (262 274).",
+		},
+		Summary = "",
+	},
+	[5649] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Rune Knight Wallaby and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5650] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Berserk Potion to ^0565C9Rune Knight Veramyl^000000 at Ruins of Juperos(juperos_02). The package must be delivered to the coordinates (46 76).",
+		},
+		Summary = "",
+	},
+	[5651] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Rune Knight Veramyl and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5652] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 1 Witherless Rose to a ^0565C9Lonely Woman^000000 at Robot Factory level 1(kh_dun01). The package must be delivered to the coordinates (2 208).",
+		},
+		Summary = "",
+	},
+	[5653] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to a Lonely Woman and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5654] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly WIngs to ^0565C9Wizard Luric^000000 at Clock Tower B2F(alde_dun02). The package must be delivered to the coordinates (262 250).",
+		},
+		Summary = "",
+	},
+	[5655] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Wizard Luric and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5656] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly WIngs to ^0565C9Knight Upon^000000 at Clock Tower B3F(alde_dun03). The package must be delivered to the coordinates (273 72).",
+		},
+		Summary = "",
+	},
+	[5657] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Knight Upon and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5658] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly WIngs to ^0565C9Archer Ado^000000 at Clock Town of twisted time 2F(c_tower2). The package must be delivered to the coordinates (253 33).",
+		},
+		Summary = "",
+	},
+	[5659] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Archer Ado and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5660] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly WIngs to ^0565C9Wizard Yorick^000000 at Clock Town of twisted time 3F(c_tower3). The package must be delivered to the coordinates (143 227).",
+		},
+		Summary = "",
+	},
+	[5661] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Wizard Yorick and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5662] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 5 Yggdrasil Leaves to ^0565C9Meth^000000 at Glast Heim St. Abbey(gl_church). The package must be delivered to the coordinates (148 38).",
+		},
+		Summary = "",
+	},
+	[5663] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Meth and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5664] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Blue Gemstones to ^0565C9Arch Bishop Tyles^000000 at Glast Heim Churchyard(gl_chyard). The package must be delivered to the coordinates (156 52).",
+		},
+		Summary = "",
+	},
+	[5665] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Arch Bishop Tyles and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5666] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 500 Silver Arrows to ^0565C9Archer Corel^000000 at Inside Glast Heim(gl_in01). The package must be delivered to the coordinates (157 13).",
+		},
+		Summary = "",
+	},
+	[5667] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Archer Corel and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5668] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 20 Traps to ^0565C9Rogue Trainer Plex^000000 at Glast Heim Underprison(gl_prison). The package must be delivered to the coordinates (34 75).",
+		},
+		Summary = "",
+	},
+	[5669] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Rogue Trainer Plex and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5670] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly Wings to ^0565C9Knight Ephad^000000 at Glast Heim Culvert B1F(gl_sew01). The package must be delivered to the coordinates (270 266).",
+		},
+		Summary = "",
+	},
+	[5671] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Knight Ephad and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5672] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly Wings to ^0565C9Cat Knight Thub^000000 at Glast Heim Culvert B2F(gl_sew02). The package must be delivered to the coordinates (25 252).",
+		},
+		Summary = "",
+	},
+	[5673] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Cat Knight Thub and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5674] = { -- official iRO
+		Title = "(B-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Fly Wings to ^0565C9Desert Warrior Seth^000000 at Glast Heim Staircase Dungeon(gl_step). The package must be delivered to the coordinates (30 10).",
+		},
+		Summary = "",
+	},
+	[5675] = { -- official iRO
+		Title = "(B-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Desert Warrior Seth and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5676] = { -- official iRO
+		Title = "(Delivery Quest) Cool down",
+		Description = {
+			"There are no new requests registered on the City Merchants Association bulletin board. It is said that the request resets at 4 AM.",
+		},
+		Summary = "Reset at 04:00",
+		CoolTimeQuest = 1,
+	},
+	[5677] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Red Potion to ^0565C9Agent X^000000 at Prontera Culvert B1F(prt_sewb1). The package must be delivered to the coordinates (204 229).",
+		},
+		Summary = "",
+	},
+	[5678] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Agent X and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5679] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"I should deliver 3 Butterfly Wings to ^0565C9Apprentice Monk Clig^000000 at Labyrinth Forest 1F(prt_maze01). The package must be delivered to the coordinates (100 100).",
+		},
+		Summary = "",
+	},
+	[5680] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Apprentice Monk Clig and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5681] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"I should deliver 10 Red Potion to ^0565C9Village Kid Tti^000000 at Undersea Tunnel 1F(iz_dun00). The package must be delivered to the coordinates (130 138).",
+		},
+		Summary = "",
+	},
+	[5682] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to Village Kid Tti and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5683] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a request to deliver 5 Blue Gemstones to ^0565C9Monk Tring^000000 in Payon Cave 1F(pay_dun00). The recipient is reportedly located near coordinates (36, 53).",
+		},
+		Summary = "",
+	},
+	[5684] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the requested items to Monk Tring and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5685] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 holy waters to ^0565C9Rogue HaRyeong^000000 in Sunken Ship 1F(treasure01). The package must be delivered to the coordinates (74 52).",
+		},
+		Summary = "",
+	},
+	[5686] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Rogue HaRyeong] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5687] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 red potions to ^0565C9Swordman Heartbeat^000000 in Ant Hell 1F(anthell01). The package must be delivered to the coordinates (107 124).",
+		},
+		Summary = "",
+	},
+	[5688] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Swordman Heartbeat] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5689] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 red potions to ^0565C9Ninja Gugan^000000 in Ant Hell 2F(anthell02). The package must be delivered to the coordinates (52 257).",
+		},
+		Summary = "",
+	},
+	[5690] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Ninja Gugan] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5691] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 5 green potions to ^0565C9Archmage Mil^000000 in Karu, the West cave(beach_dun). The package must be delivered to the coordinates (90 40).",
+		},
+		Summary = "",
+	},
+	[5692] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Archmage Mil] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5693] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 yellow potions to ^0565C9Rogue Ayo^000000 in Luanda the northern cave(beach_dun2). The package must be delivered to the coordinates (157 80).",
+		},
+		Summary = "",
+	},
+	[5694] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Rogue Ayo] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5695] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 red potions to ^0565C9Merchant Cat Mr.C^000000 in Mao, the East Cave(beach_dun3). The package must be delivered to the coordinates (161 252).",
+		},
+		Summary = "",
+	},
+	[5696] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Merchant Cat Mr.C] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5697] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 yellow potions to ^0565C9Blacksmith Haka^000000 in Sphinx B1F(in_sphinx1). The package must be delivered to the coordinates (138 61).",
+		},
+		Summary = "",
+	},
+	[5698] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Blacksmith Haka] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5699] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 red potions to ^0565C9Rogue Misen^000000 Inside Pyramid 1F (moc_pryd01). The package must be delivered to the coordinates (122 112).",
+		},
+		Summary = "",
+	},
+	[5700] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Rogue Misen] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5701] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 Orange Potions to ^0565C9Knight Banpick^000000 in Orc Dungeon 1F(orcsdun01). The package must be delivered to the coordinates (95 170).",
+		},
+		Summary = "",
+	},
+	[5702] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Knight Banpick] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5703] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 yellow potions to ^0565C9Knight Banpick^000000 in Orc Dungeon 2F(orcsdun02). The package must be delivered to the coordinates (60 95).",
+		},
+		Summary = "",
+	},
+	[5704] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Knight Banpick] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5705] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 yellow potions to ^0565C9Beast Bullroar^000000 in Geffen Dungeon 1F(gef_dun00). The package must be delivered to the coordinates (171 174).",
+		},
+		Summary = "",
+	},
+	[5706] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Beast Bullroar] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5707] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 1 cotton shirt to ^0565C9Explorer Fire^000000 in Ice Cave 1F(ice_dun01). The package must be delivered to the coordinates (233 80).",
+		},
+		Summary = "",
+	},
+	[5708] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Explorer Fire] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5709] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 Fly Wings to ^0565C9Spirit Research Ins.^000000 in Mjolnir Dead Pit 1F (mjo_dun01). The package must be delivered to the coordinates (75 215).",
+		},
+		Summary = "",
+	},
+	[5710] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Spirit Research Ins.] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5711] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 30 meats to ^0565C9Hungry Miner^000000 in Einbech Mine Dungeon 1F(ein_dun01). The package must be delivered to the coordinates (48 252).",
+		},
+		Summary = "",
+	},
+	[5712] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Hungry Miner] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5713] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 30 sweet potatoes to ^0565C9Picknicker^000000 in Nogg Road 1F(mag_dun01). The package must be delivered to the coordinates (221 198).",
+		},
+		Summary = "",
+	},
+	[5714] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Picknicker] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5715] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 magnifying glasses to ^0565C9Archaeologist Mien^000000 at the Museum Entrance in the Thanatos Tower - Lower Level(tha_t01). The package must be delivered to the coordinates (122 44).",
+		},
+		Summary = "",
+	},
+	[5716] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Archaeologist Mien] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5717] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 monsters' food (monster bait) to ^0565C9Boss Cat^000000 in Abyss Lake Underground Cave 1F(abyss_01). The package must be delivered to the coordinates (247 267).",
+		},
+		Summary = "",
+	},
+	[5718] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Boss Cat] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5719] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 Potions of Concentration to ^0565C9Yunologist Jeobi^000000 in Ruins of Juperos(juperos_01). The package must be delivered to the coordinates (58 227).",
+		},
+		Summary = "",
+	},
+	[5720] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Yunologist Jeobi] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5721] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 Fly Wings to ^0565C9Wanderer Vivi^000000 in Clock Tower B1F(alde_dun01). The package must be delivered to the coordinates (80 275).",
+		},
+		Summary = "",
+	},
+	[5722] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Wanderer Vivi] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5723] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 10 Fly Wings to ^0565C9Wanderer Vivi^000000 in Clock Tower 1F(c_tower1). The package must be delivered to the coordinates (378 118).",
+		},
+		Summary = "",
+	},
+	[5724] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Wanderer Vivi] and received a receipt.",
+		},
+		Summary = "",
+	},
+	[5725] = { -- official iRO
+		Title = "(C-Delivery Quest)",
+		Description = {
+			"This is a delivery request to deliver 20 set traps to ^0565C9Reidin Kurs^000000 in Glast Heim(glast_01). The package must be delivered to the coordinates (260 53).",
+		},
+		Summary = "",
+	},
+	[5726] = { -- official iRO
+		Title = "(C-Delivery Quest) Receipt",
+		Description = {
+			"I delivered the package to [Reidin Kurs] and received a receipt.",
+		},
+		Summary = "",
+	},
+}
