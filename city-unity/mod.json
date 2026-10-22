@@ -1,6 +1,6 @@
 {
   "name": "city-unity",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "akreao",
   "description": "kRO's Major City Contribution system: join the City Merchant Union in the Eden Group lobby, collect Union Insignias while hunting, invest them in nine cities, and buy each city's account-bound Unity gear for leveling.",
   "requires": { "app": ">=1.4.3", "era": "renewal" },

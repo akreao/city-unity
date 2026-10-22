@@ -131,6 +131,11 @@ moc_para01,53,35,4	script	City Merchant Union Board#cu	857,{
 		close;
 	}
 	end;
+
+OnInit:
+	if (callfunc("F_Unity_StandDown"))
+		disablenpc strnpcinfo(0);
+	end;
 }
 
 // Returns the delivery task or receipt quest the player holds, or 0.
@@ -244,6 +249,11 @@ moc_para01,53,32,4	script	Secretary Governor#cu	893,{
 		close;
 	}
 	end;
+
+OnInit:
+	if (callfunc("F_Unity_StandDown"))
+		disablenpc strnpcinfo(0);
+	end;
 }
 
 // The task quest for a held task or receipt quest. A delivery's receipt
@@ -298,6 +308,11 @@ function	script	F_Unity_WantedWait	{
 	delitem .@item, .@amt;
 	changequest .@task, .@task + 1;
 	close;
+
+OnInit:
+	if (callfunc("F_Unity_StandDown"))
+		disablenpc strnpcinfo(0);
+	end;
 }
 
 iz_dun03,67,76,4	duplicate(Delivery Recipient#cu)	Guard Yorayo#5497	4_M_MERCAT1

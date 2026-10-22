@@ -31,6 +31,15 @@ changes. Works with or without the eden-rework-2021 mod.
 | `db/item_db.yml` | Unity Guard and Unity Buckler lose rAthena's EXP +4%, as kRO's item text has it. |
 | `System/OngoingQuestInfoList.lub` | English quest-window text for all 259 quests, from the iRO client. |
 
+## With World Sync Extras
+
+Lil Art's World Sync Extras has its own City Investment, built on the same
+quests, insignias and NPC spots. While its **City Investment** setting is ticked
+(it is by default), City Unity steps aside: its NPCs and insignia drops are off,
+and the map server log says so. To play City Unity instead, untick City
+Investment in World Sync Extras' settings. Each mod keeps its own city
+contribution, so switching doesn't carry it over.
+
 ## Settings
 
 - **Insignia drop chance (%)** (20): chance per kill for each union member nearby.
@@ -38,6 +47,9 @@ changes. Works with or without the eden-rework-2021 mod.
 
 ## Checking it
 
+- With World Sync Extras' City Investment on, the log shows
+  `City Unity: World Sync Extras' City Investment is on` and none of City Unity's
+  NPCs appear.
 - The map server log shows `Loading '253' entries in 'db/import/quest_db.yml'`
   and no script errors for `unity_core.txt` or `unity_requests.txt`.
 - In moc_para01, the manager stands at 53,38, the board at 53,35 and the
