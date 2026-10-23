@@ -4,6 +4,12 @@ Each `## <version>` section is that version's release notes: the release
 workflow publishes it as the GitHub Release text, which the Ragnarok Offline
 app shows players under "What's new". Write it for players.
 
+## 0.1.3
+- The City Merchant Union Board is back where kRO has it: the chalkboard on
+  the wall behind the Union Manager in the Eden Group lobby. Like on kRO, the
+  board itself is invisible, so you click the chalkboard to read the wanted
+  bounties and deliveries.
+
 ## 0.1.2
 - Works alongside World Sync Extras. That mod has its own City Investment,
   built on the same quests, insignias and NPC spots, so the two used to stand

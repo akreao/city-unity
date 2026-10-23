@@ -16,7 +16,8 @@ changes. Works with or without the eden-rework-2021 mod.
    your contribution grows: weapons and shields at 3,000, shoes at 6,000, armor at
    12,000, garment at 20,000. The armor bonuses (EXP +4% and more) work up to
    base level 100.
-5. The **City Merchant Union Board** (53,35) posts a weekly wanted boss (100-300
+5. The **City Merchant Union Board** (the chalkboard on the wall behind the
+   manager, 54,35) posts a weekly wanted boss (100-300
    insignias, new on Wednesday at 4 a.m.) and A, B and C-rank deliveries to NPCs
    inside dungeons (20-50 insignias each, one of each rank a day, one at a time).
    The **Secretary Governor** (53,32) pays out.
@@ -52,7 +53,8 @@ contribution, so switching doesn't carry it over.
   NPCs appear.
 - The map server log shows `Loading '253' entries in 'db/import/quest_db.yml'`
   and no script errors for `unity_core.txt` or `unity_requests.txt`.
-- In moc_para01, the manager stands at 53,38, the board at 53,35 and the
+- In moc_para01, the manager stands at 53,38, the board (invisible, on the
+  chalkboard in the wall) at 54,35 and the
   Secretary Governor at 53,32. In Prontera, the officer is at 142,67 and the
   Merchant Union at 146,67.
 
