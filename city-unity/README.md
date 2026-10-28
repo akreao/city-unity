@@ -31,6 +31,7 @@ changes. Works with or without the eden-rework-2021 mod.
 | `db/quest_db.yml` | The union, bounty and delivery quests rAthena lacks (253). |
 | `db/item_db.yml` | Unity Guard and Unity Buckler lose rAthena's EXP +4%, as kRO's item text has it. |
 | `System/OngoingQuestInfoList.lub` | English quest-window text for all 259 quests, from the iRO client. |
+| `System/itemInfo.lua` | Adds the Druid line to the English job line of the Unity Mace and Unity Two-Handed Axe, which Druids can equip. |
 
 ## With World Sync Extras
 
