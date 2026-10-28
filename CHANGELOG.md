@@ -4,6 +4,12 @@ Each `## <version>` section is that version's release notes: the release
 workflow publishes it as the GitHub Release text, which the Ragnarok Offline
 app shows players under "What's new". Write it for players.
 
+## 0.1.4
+- The Unity Mace and Unity Two-Handed Axe tooltips now list Druid among
+  the jobs that can equip them. Druids could already use both; the English
+  text just left them out. Restart the app after updating so the client
+  picks up the new text.
+
 ## 0.1.3
 - The City Merchant Union Board is back where kRO has it: the chalkboard on
   the wall behind the Union Manager in the Eden Group lobby. Like on kRO, the
